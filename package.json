@@ -1,0 +1,22 @@
+{
+  "name": "tiny-engine-extensions-root",
+  "private": true,
+  "description": "tiny-engine extensions.",
+  "author": "OpenTiny Team",
+  "license": "MIT",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:opentiny/tiny-engine-extensions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/opentiny/tiny-engine-extensions/issues"
+  },
+  "keywords": [
+    "frontend",
+    "lowcode",
+    "opentiny",
+    "tiny-engine",
+    "tiny-engine-extensions"
+  ]
+}
