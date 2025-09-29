@@ -41,16 +41,7 @@
     "generate-code",
     "tinypro"
   ],
-  "author": "TinyPro Team",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/your-org/tiny-engine-generate-code-tinypro.git"
-  },
-  "homepage": "https://github.com/your-org/tiny-engine-generate-code-tinypro#readme",
-  "bugs": {
-    "url": "https://github.com/your-org/tiny-engine-generate-code-tinypro/issues"
-  },
   "publishConfig": {
     "access": "public"
   }
