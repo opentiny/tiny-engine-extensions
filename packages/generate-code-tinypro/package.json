@@ -1,13 +1,12 @@
 {
-  "name": "tiny-engine-generate-code-tinypro",
-  "version": "1.0.0",
+  "name": "@opentiny/tiny-engine-generate-code-tinypro",
+  "version": "0.0.1-alpha.0",
   "description": "TinyPro Generate Code Plugin for TinyEngine",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "type": "module",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "exports": {
     ".": {
