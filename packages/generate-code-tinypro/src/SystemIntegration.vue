@@ -747,8 +747,6 @@ const generatePreview = async () => {
     // 使用完整的代码生成逻辑，从Main.vue移植过来
     const { isBlock, getCurrentPage } = useCanvas();
     const { getCurrentBlock } = useBlock();
-    const page = getCurrentPage();
-    const pageName = page?.name || "";
 
     const getParams = () => {
       const { getSchema } = useCanvas();
