@@ -13,7 +13,7 @@
       <div class="page-info-section">
         <div class="page-info-card">
           <div class="page-info-header">
-            <h3 class="page-info-title">📄 当前页面</h3>
+            <h3 class="page-info-title">当前页面</h3>
             <div class="page-info-badge">
               {{ currentPageInfo.type || "Page" }}
             </div>
@@ -47,7 +47,7 @@
         <!-- 左侧：集成配置 -->
         <div class="integration-form">
           <div class="form-section">
-            <h3 class="section-title">⚙️ 菜单配置</h3>
+            <h3 class="section-title">菜单配置</h3>
             <div class="form-grid">
               <div class="form-item">
                 <label>名称 <span class="required">*</span></label>
@@ -122,7 +122,7 @@
         <!-- 右侧：文件预览 -->
         <div class="file-preview">
           <div class="file-preview-header">
-            <h3 class="section-title">📁 生成的文件</h3>
+            <h3 class="section-title">生成的文件</h3>
             <div class="file-stats" v-if="generatedFiles.length > 0">
               共 {{ generatedFiles.length }} 个文件
             </div>
@@ -221,6 +221,7 @@ import {
   defineProps,
   defineEmits,
   h,
+  isMemoSame,
 } from "vue";
 import {
   DialogBox,
@@ -275,13 +276,6 @@ const gridRef = ref();
 // 获取原始HTTP服务并临时修改拦截器
 const httpService = getMetaApi(META_SERVICE.Http);
 const rawHttp = httpService.getHttp();
-
-// 调试：查看原始HTTP服务的配置
-console.log("🔍 原始HTTP服务配置:", {
-  baseURL: rawHttp.defaults.baseURL,
-  timeout: rawHttp.defaults.timeout,
-  headers: rawHttp.defaults.headers,
-});
 
 // 创建一个新的axios实例，使用相同配置但不同的拦截器
 const customHttp = rawHttp.create(rawHttp.defaults);
@@ -403,9 +397,6 @@ const tokenConfig = {
     maxAge: 30 * 60 * 1000, // 30分钟
     storageKey: "lowcode_designer_token",
   },
-
-  // 调试模式
-  debug: process.env.NODE_ENV === "development",
 };
 
 // Token管理
@@ -428,49 +419,27 @@ const tokenManager = {
     const token = await this.tokenPromise;
     this.tokenPromise = null;
     this.currentToken = token;
-
-    return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQG5vLXJlcGx5LmNvbSIsImlhdCI6MTc1ODUzNDQ1MiwiZXhwIjoxNzU4NTQxNjUyfQ.3et0I2bdjB5udV16-aBT90ehXrDZFFxI5v22r_TVt74";
+    return token;
   },
 
-  // 从多种来源尝试获取token - 优先使用API方式
+  // 获取 token
   async fetchTokenFromSources() {
-    const sources = [
-      // 1. 优先使用专门的API Token接口（最可靠）
-      () => this.getTokenFromApi(),
-    ];
+    const sources = [() => this.getTokenFromApi()];
 
-    for (const [index, source] of sources.entries()) {
-      try {
-        console.log(`🔄 尝试方式${index + 1}: ${source.name || "未知方式"}`);
-        const token = await source();
-        if (token && this.isTokenValid(token)) {
-          console.log(
-            `✅ Token获取成功 (方式${index + 1}):`,
-            token.substring(0, 20) + "..."
-          );
-          return token;
-        }
-      } catch (error) {
-        console.warn(`❌ 方式${index + 1}失败:`, error.message);
+    for (const [_, source] of sources.entries()) {
+      const token = await source();
+      if (token && this.isTokenValid(token)) {
+        return token;
       }
     }
-
-    throw new Error("所有token获取方式都失败了，请检查网络连接和认证配置");
   },
 
   // 通过专门的API Token接口获取
   async getTokenFromApi() {
     try {
-      if (tokenConfig.debug) {
-        console.log("🔑 开始获取API Token:", {
-          endpoint: tokenConfig.apiToken.endpoint,
-          tokenName: tokenConfig.apiToken.credentials.tokenName,
-        });
-      }
-
       // 使用与其他API调用相同的方式，通过customHttp调用token接口
       const response = await customHttp.post(
-        "/auth/api-token",
+        "/api/auth/api-token",
         tokenConfig.apiToken.credentials
       );
 
@@ -481,14 +450,6 @@ const tokenManager = {
           expiresIn: response.data.expiresIn,
           obtainedAt: Date.now(),
         };
-
-        if (tokenConfig.debug) {
-          console.log("✅ API Token获取成功:", {
-            tokenId: tokenData.tokenId,
-            expiresIn: tokenData.expiresIn,
-            tokenPreview: tokenData.token.substring(0, 20) + "...",
-          });
-        }
 
         // 缓存token信息
         this.tokenInfo = {
@@ -504,9 +465,6 @@ const tokenManager = {
               tokenConfig.cache.storageKey,
               JSON.stringify(tokenData)
             );
-            if (tokenConfig.debug) {
-              console.log("💾 Token已缓存到localStorage");
-            }
           } catch (cacheError) {
             console.warn("缓存token失败:", cacheError.message);
           }
@@ -664,18 +622,6 @@ const utils = {
     return filePath;
   },
 
-  // 生成页面名称的各种格式
-  // formatPageName(name: string) {
-  //   const cleanName = name.replace(/\s+/g, "-").toLowerCase();
-  //   return {
-  //     original: name,
-  //     kebabCase: cleanName,
-  //     path: `/${cleanName}`,
-  //     componentPath: `board/${cleanName}/index`,
-  //     locale: `board.${cleanName}`,
-  //   };
-  // },
-
   // 检查文件是否为Vue文件
   isVueFile(file: any): boolean {
     return file.fileName && file.fileName.endsWith(".vue");
@@ -698,32 +644,6 @@ const utils = {
     message: string
   ) {
     useNotify({ type, title, message });
-  },
-
-  // 调试网络请求
-  async debugNetworkRequest(url: string, method: string = "GET") {
-    console.log(`🔍 调试网络请求: ${method} ${url}`);
-
-    try {
-      const response = await fetch(url, {
-        method,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      console.log(`✅ 直接fetch结果:`, {
-        url,
-        status: response.status,
-        statusText: response.statusText,
-        ok: response.ok,
-      });
-
-      return response;
-    } catch (error) {
-      console.error(`❌ 直接fetch失败:`, error);
-      throw error;
-    }
   },
 };
 
@@ -827,6 +747,8 @@ const generatePreview = async () => {
     // 使用完整的代码生成逻辑，从Main.vue移植过来
     const { isBlock, getCurrentPage } = useCanvas();
     const { getCurrentBlock } = useBlock();
+    const page = getCurrentPage();
+    const pageName = page?.name || "";
 
     const getParams = () => {
       const { getSchema } = useCanvas();
@@ -973,7 +895,7 @@ const generatePreview = async () => {
       return utils.isVueFile(file) && utils.isInViewsFolder(file);
     });
 
-    // 转换代码以适配TinyPro项目（如果启用了转换开关）
+    // 转换代码以适配TinyPro项目
     const transformedFiles = filteredFiles.map((file: any) => ({
       ...file,
       fileContent: formData.deployment.enableTinyProTransform
@@ -1018,18 +940,9 @@ const callBackendAPI = async () => {
       lang: formData.menuConfig.lang,
     };
 
-    // 调试：先测试一下/api/i18接口是否可访问
-    console.log("🔍 准备调用i18接口，先进行网络测试...");
-    try {
-      await utils.debugNetworkRequest("/api/i18", "POST");
-    } catch (debugError) {
-      console.warn("⚠️ 网络测试失败，但继续尝试正常请求:", debugError.message);
-    }
-
     const i18nResponse = await customHttp.post("/api/i18", i18nConfig, {
       headers: await getAuthHeaders(),
     });
-    console.log("✅ 国际化创建结果:", i18nResponse.data);
 
     // 2. 创建菜单
     const menuConfig = {
@@ -1086,31 +999,6 @@ const callBackendAPI = async () => {
     throw error;
   }
 };
-
-// 自动填充表单的函数
-// const fillFormWithPageInfo = (pageName: string) => {
-//   const pageFormat = utils.formatPageName(pageName);
-//   Object.assign(formData.menuConfig, {
-//     name: pageFormat.original,
-//     routeId: pageFormat.kebabCase,
-//     path: pageFormat.path,
-//     componentPath: pageFormat.componentPath,
-//     locale: pageFormat.locale,
-//   });
-// };
-
-// 监听页面信息变化，自动填充表单
-// watch(
-//   [() => props.pageInfo, currentPageInfo],
-//   ([newPageInfo, currentPage]) => {
-//     const pageName = currentPage?.name || newPageInfo?.name || "NewPage";
-
-//     if (pageName !== "NewPage") {
-//       fillFormWithPageInfo(pageName);
-//     }
-//   },
-//   { immediate: true }
-// );
 
 // 表单验证
 const isFormValid = computed(() => {
@@ -1226,33 +1114,6 @@ const confirm = async () => {
 
 <style lang="less" scoped>
 .system-integration-dialog {
-  :deep(.tiny-dialog-box__content) {
-    background-color: var(--te-toolbars-generate-code-bg-color);
-
-    .tiny-dialog-box__header {
-      background-color: var(--te-toolbars-generate-code-bg-color);
-
-      .tiny-dialog-box__title {
-        color: var(--te-toolbars-generate-code-text-color);
-      }
-
-      .tiny-dialog-box__headerbtn .tiny-dialog-box__close {
-        fill: var(--te-toolbars-generate-code-icon-color) !important;
-
-        &:hover {
-          fill: var(--te-toolbars-generate-code-icon-color-primary) !important;
-        }
-      }
-    }
-
-    .tiny-dialog-box__footer {
-      .tiny-button--primary {
-        background-color: var(--te-toolbars-generate-code-bg-color-primary);
-        border: none;
-      }
-    }
-  }
-
   .dialog-footer {
     display: flex;
     justify-content: space-between;

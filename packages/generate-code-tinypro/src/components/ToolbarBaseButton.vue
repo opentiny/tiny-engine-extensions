@@ -3,7 +3,7 @@
     <svg v-if="icon" class="button-icon">
       <use :xlink:href="`#icon-${icon}`"></use>
     </svg>
-    <span class="button-text">{{ content || '按钮' }}</span>
+    <span class="button-text">{{ content || "按钮" }}</span>
   </button>
 </template>
 
@@ -12,18 +12,18 @@ export default {
   props: {
     icon: {
       type: String,
-      default: ''
+      default: "",
     },
     content: {
       type: String,
-      default: ''
+      default: "",
     },
     active: {
       type: Boolean,
-      default: false
-    }
-  }
-}
+      default: false,
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -31,30 +31,20 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 6px 12px;
+  padding: 0px 12px;
   border: 1px solid var(--te-common-border-color, #d9d9d9);
   border-radius: 4px;
-  background: var(--te-common-bg-default, #fff);
-  color: var(--te-common-text-color, #333);
-  font-size: 14px;
+  background-color: var(--te-component-toolbar-base-button-bg-color);
+  color: var(--te-common-text-color, #191919);
+  font-size: 12px;
   cursor: pointer;
   transition: all 0.2s;
-}
-
-.toolbar-button:hover {
-  border-color: var(--te-common-color-primary, #1890ff);
-  color: var(--te-common-color-primary, #1890ff);
-}
-
-.toolbar-button.active {
-  border-color: var(--te-common-color-primary, #1890ff);
-  background: var(--te-common-bg-primary, #e6f7ff);
-  color: var(--te-common-color-primary, #1890ff);
+  height: 24px;
 }
 
 .button-icon {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   fill: currentColor;
 }
 

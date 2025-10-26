@@ -71,8 +71,4 @@ export default {
   border-radius: 4px;
   transition: background-color 0.2s;
 }
-
-.toolbar-item-wrap:hover {
-  background-color: var(--te-common-bg-hover, #f5f5f5);
-}
 </style>
