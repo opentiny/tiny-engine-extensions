@@ -1148,8 +1148,7 @@ const confirm = async () => {
 
 .page-info-section {
   .page-info-card {
-    background: var(--te-toolbars-generate-code-bg-color);
-    border: 1px solid var(--te-toolbars-generate-code-border-color-checked);
+    border: 1px solid #d9d9d9;
     border-radius: 8px;
     padding: 16px;
 
@@ -1162,12 +1161,12 @@ const confirm = async () => {
       .page-info-title {
         font-size: 16px;
         font-weight: 600;
-        color: var(--te-toolbars-generate-code-text-color);
+        color: #191919;
         margin: 0;
       }
 
       .page-info-badge {
-        background: var(--te-toolbars-generate-code-bg-color-primary);
+        background: #1890ff;
         color: white;
         padding: 4px 12px;
         border-radius: 12px;
@@ -1186,13 +1185,13 @@ const confirm = async () => {
         gap: 8px;
 
         .info-label {
-          color: var(--te-toolbars-generate-code-text-color);
+          color: #191919;
           font-weight: 500;
           font-size: 14px;
         }
 
         .info-value {
-          color: var(--te-toolbars-generate-code-text-color);
+          color: #191919;
           font-weight: 600;
           font-size: 14px;
           background: rgba(64, 158, 255, 0.1);
@@ -1246,7 +1245,7 @@ const confirm = async () => {
   max-height: 100%;
   overflow-y: auto;
   padding: 16px;
-  border-right: 1px solid var(--te-toolbars-generate-code-border-color-checked);
+  border-right: 1px solid #d9d9d9;
 }
 
 .file-preview {
@@ -1263,7 +1262,7 @@ const confirm = async () => {
     margin-bottom: 16px;
 
     .file-stats {
-      color: var(--te-toolbars-generate-code-text-color);
+      color: #191919;
       font-size: 12px;
       background: rgba(64, 158, 255, 0.1);
       padding: 4px 8px;
@@ -1277,7 +1276,7 @@ const confirm = async () => {
     align-items: center;
     justify-content: center;
     height: 200px;
-    color: var(--te-toolbars-generate-code-text-color);
+    color: #191919;
 
     .empty-icon {
       font-size: 48px;
@@ -1297,7 +1296,7 @@ const confirm = async () => {
       font-size: 12px;
       opacity: 0.6;
       margin: 0;
-      color: var(--te-toolbars-generate-code-bg-color-primary);
+      color: #1890ff;
     }
   }
 
@@ -1314,10 +1313,9 @@ const confirm = async () => {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 16px;
-    color: var(--te-toolbars-generate-code-text-color);
+    color: #191919;
     padding-bottom: 8px;
-    border-bottom: 1px solid
-      var(--te-toolbars-generate-code-border-color-checked);
+    border-bottom: 1px solid #d9d9d9;
   }
 
   .form-grid {
@@ -1336,7 +1334,7 @@ const confirm = async () => {
 
       label {
         font-weight: 500;
-        color: var(--te-toolbars-generate-code-text-color);
+        color: #191919;
         font-size: 14px;
 
         .required {
@@ -1349,15 +1347,15 @@ const confirm = async () => {
 }
 
 .config-preview {
-  background-color: var(--te-toolbars-generate-code-bg-color);
-  border: 1px solid var(--te-toolbars-generate-code-border-color-checked);
+  background-color: #f5f5f5;
+  border: 1px solid #d9d9d9;
   border-radius: 4px;
   padding: 12px;
 
   pre {
     margin: 0;
     font-size: 12px;
-    color: var(--te-toolbars-generate-code-text-color);
+    color: #191919;
     white-space: pre-wrap;
     word-break: break-all;
   }

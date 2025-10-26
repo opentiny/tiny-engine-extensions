@@ -32,10 +32,9 @@ export default {
   align-items: center;
   gap: 4px;
   padding: 0px 12px;
-  border: 1px solid var(--te-common-border-color, #d9d9d9);
+  border: 1px solid #d9d9d9;
   border-radius: 4px;
-  background-color: var(--te-component-toolbar-base-button-bg-color);
-  color: var(--te-common-text-color, #191919);
+  color: #191919;
   font-size: 12px;
   cursor: pointer;
   transition: all 0.2s;
