@@ -3,10 +3,16 @@
  * 基于原有的 generate-code 插件，增加了 TinyPro 系统集成功能
  */
 
-import entry from "./Main.vue";
-import metaData from "./meta.js";
-import { SaveLocalService } from "./composable/index.js";
-import "./styles/vars.less";
+// 导入组件 - 确保组件样式被打包
+import entry from './Main.vue';
+import SystemIntegration from './SystemIntegration.vue';
+import ToolbarBase from './components/ToolbarBase.vue';
+import ToolbarBaseButton from './components/ToolbarBaseButton.vue';
+import ToolbarBaseIcon from './components/ToolbarBaseIcon.vue';
+
+// 导入元数据和服务
+import metaData from './meta.js';
+import { SaveLocalService } from './composable/index.js';
 
 // 主插件对象
 const TinyProGenerateCodePlugin = {
@@ -19,10 +25,12 @@ const TinyProGenerateCodePlugin = {
 export default TinyProGenerateCodePlugin;
 
 // 命名导出
-export { SaveLocalService, TinyProGenerateCodePlugin };
-
-// 提供安装函数供 Vue 应用使用
-export const install = (app, options = {}) => {
-  // 可以在这里添加全局组件注册等逻辑
-  return TinyProGenerateCodePlugin;
+export {
+  SaveLocalService,
+  TinyProGenerateCodePlugin,
+  // 导出组件供外部使用
+  SystemIntegration,
+  ToolbarBase,
+  ToolbarBaseButton,
+  ToolbarBaseIcon,
 };

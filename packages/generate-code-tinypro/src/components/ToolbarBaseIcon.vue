@@ -3,7 +3,7 @@
     <svg v-if="icon" class="icon" :class="{ active: active }">
       <use :xlink:href="`#icon-${icon}`"></use>
     </svg>
-    <span v-else class="icon-text">{{ content || '工具' }}</span>
+    <span v-else class="icon-text">{{ content || "工具" }}</span>
   </span>
 </template>
 
@@ -12,18 +12,18 @@ export default {
   props: {
     icon: {
       type: String,
-      default: ''
+      default: "",
     },
     content: {
       type: String,
-      default: ''
+      default: "",
     },
     active: {
       type: Boolean,
-      default: false
-    }
-  }
-}
+      default: false,
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -42,11 +42,11 @@ export default {
 }
 
 .icon.active {
-  color: var(--te-common-color-primary, #1890ff);
+  color: #1890ff;
 }
 
 .icon-text {
   font-size: 12px;
-  color: var(--te-common-text-color, #333);
+  color: #333;
 }
 </style>
