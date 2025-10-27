@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .toolbar-icon {
   display: inline-flex;
   align-items: center;

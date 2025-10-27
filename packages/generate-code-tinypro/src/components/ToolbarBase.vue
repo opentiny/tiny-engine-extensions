@@ -62,7 +62,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .toolbar-item-wrap {
   display: inline-flex;
   align-items: center;
