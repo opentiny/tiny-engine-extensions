@@ -107,7 +107,7 @@ const cancel = () => {
   state.saveFilesInfo = [];
 };
 </script>
-<style lang="less" scoped>
+<style lang="less">
 .toolbar-generate {
   .toolbar-generate-btn {
     display: flex;

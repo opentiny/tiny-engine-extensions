@@ -1110,7 +1110,7 @@ const confirm = async () => {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .system-integration-dialog {
   .dialog-footer {
     display: flex;

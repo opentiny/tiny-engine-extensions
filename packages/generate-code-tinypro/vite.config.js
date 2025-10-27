@@ -34,9 +34,11 @@ export default defineConfig({
           "@opentiny/icons": "TinyIcons",
           "@vueuse/core": "VueUse",
         },
+        assetFileNames: "style.css",
       },
     },
     cssCodeSplit: false,
+    cssMinify: true,
   },
   css: {
     preprocessorOptions: {

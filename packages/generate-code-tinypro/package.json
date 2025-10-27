@@ -13,7 +13,8 @@
       "import": "./dist/index.esm.js",
       "require": "./dist/index.js"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
     "build": "vite build",
