@@ -1,0 +1,48 @@
+@import '@opentiny/vue-theme/base/index.css';
+@import '@opentiny/vue-theme/button/index.css';
+@import '@opentiny/vue-theme/button-group/index.css';
+@import '@opentiny/vue-theme/dialog-box/index.css';
+@import '@opentiny/vue-theme/dropdown/index.css';
+@import '@opentiny/vue-theme/form/index.css';
+@import '@opentiny/vue-theme/form-item/index.css';
+@import '@opentiny/vue-theme/grid/index.css';
+@import '@opentiny/vue-theme/input/index.css';
+@import '@opentiny/vue-theme/pager/index.css';
+@import '@opentiny/vue-theme/progress/index.css';
+@import '@opentiny/vue-theme/radio/index.css';
+@import '@opentiny/vue-theme/radio-group/index.css';
+@import '@opentiny/vue-theme/select/index.css';
+@import '@opentiny/vue-theme/switch/index.css';
+@import '@opentiny/vue-theme/tag/index.css';
+@import '@opentiny/vue-theme/upload/index.css';
+
+:root {
+  font-family: 'HarmonyOS Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #101828;
+  background: #f5f6f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f5f6f8;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
