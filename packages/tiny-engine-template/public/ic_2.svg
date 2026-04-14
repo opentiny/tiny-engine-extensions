@@ -1,0 +1,29 @@
+<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36.000000" height="36.000000" fill="none">
+	<defs>
+		<filter id="pixso_custom_mask_type_alpha">
+			<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 " />
+		</filter>
+		<linearGradient id="paint_linear_11" x1="27.6655464" x2="5.24266243" y1="29.8734531" y2="5.85879898" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(224,33,40)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(238,105,111)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_12" x1="18" x2="18" y1="9.37501144" y2="26.5125866" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0" stop-opacity="0.800000012" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0.600000024" />
+		</linearGradient>
+	</defs>
+	<mask id="mask_0" width="36.000000" height="36.000000" x="0.000000" y="0.000000" maskUnits="userSpaceOnUse">
+		<g filter="url(#pixso_custom_mask_type_alpha)">
+			<g id="clip144_120">
+				<rect id="ic_public_alert2_textured-高危" width="36.000000" height="36.000000" x="0.000000" y="0.000000" fill="rgb(0,0,0)" />
+			</g>
+		</g>
+	</mask>
+	<rect id="ic_2" width="36.000000" height="36.000000" x="0.000000" y="0.000000" />
+	<g id="clip path group" mask="url(#mask_0)">
+		<g id="组合 144104">
+			<path id="path" d="M0.914961 26.0476C0.449961 26.8576 0.209961 27.6676 0.209961 28.4776C0.209961 29.2876 0.449961 30.1051 0.914961 30.9151C1.38746 31.7251 1.97246 32.3326 2.66996 32.7376C3.37496 33.1501 4.19996 33.3526 5.13746 33.3526L30.8625 33.3526C31.8 33.3526 32.6175 33.1501 33.3225 32.7376C34.02 32.3326 34.6125 31.7251 35.0775 30.9151C36.015 29.2951 36.015 27.6676 35.0775 26.0476L22.215 3.76514C21.75 2.95514 21.1575 2.34764 20.46 1.94264C19.755 1.53014 18.9375 1.32764 18 1.32764C17.0625 1.32764 16.2375 1.53014 15.54 1.94264C14.835 2.34764 14.25 2.95514 13.7775 3.76514L0.914961 26.0476Z" fill="url(#paint_linear_11)" fill-rule="evenodd" />
+			<path id="path" d="M19.125 21L19.125 10.5C19.125 9.87 18.63 9.375 18 9.375C17.37 9.375 16.875 9.87 16.875 10.5L16.875 21C16.875 21.63 17.37 22.125 18 22.125C18.63 22.125 19.125 21.63 19.125 21ZM16.6875 25.2C16.6875 24.4725 17.2725 23.8875 18 23.8875C18.72 23.8875 19.3125 24.4725 19.3125 25.2C19.3125 25.92 18.72 26.5125 18 26.5125C17.2725 26.5125 16.6875 25.92 16.6875 25.2Z" fill="url(#paint_linear_12)" fill-rule="evenodd" />
+		</g>
+	</g>
+</svg>

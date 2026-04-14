@@ -1,0 +1,29 @@
+<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36.000000" height="36.000000" fill="none">
+	<defs>
+		<filter id="pixso_custom_mask_type_alpha">
+			<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 " />
+		</filter>
+		<linearGradient id="paint_linear_13" x1="26.52631" x2="3.31579208" y1="28.7217426" y2="1.90734863e-06" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(32,112,243)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(140,163,250)" offset="1" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="paint_linear_14" x1="17.9998989" x2="17.9998989" y1="9" y2="28.1250114" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(255,255,255)" offset="0.00301100011" stop-opacity="0.901961029" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0.701960981" />
+		</linearGradient>
+	</defs>
+	<mask id="mask_1" width="36.000000" height="36.000000" x="0.000000" y="0.000000" maskUnits="userSpaceOnUse">
+		<g filter="url(#pixso_custom_mask_type_alpha)">
+			<g id="clip144_92">
+				<rect id="ic_public_infotex_tured-提示" width="36.000000" height="36.000000" x="0.000000" y="0.000000" fill="rgb(0,0,0)" />
+			</g>
+		</g>
+	</mask>
+	<rect id="ic_3" width="36.000000" height="36.000000" x="0.000000" y="0.000000" />
+	<g id="clip path group" mask="url(#mask_1)">
+		<g id="组合 144108">
+			<ellipse id="path" rx="18.000000" ry="17.999981" cx="18" cy="17.9999809" fill="url(#paint_linear_13)" />
+			<path id="path" d="M17.9999 9C17.1674 9 16.4999 9.6675 16.4999 10.5C16.4999 11.325 17.1674 12 17.9999 12C18.8249 12 19.4999 11.325 19.4999 10.5C19.4999 9.6675 18.8249 9 17.9999 9ZM17.9924 14.1675L16.4924 14.1675C15.8624 14.1675 15.3674 14.655 15.3674 15.2925C15.3674 15.9225 15.8624 16.4175 16.4924 16.4175L16.8674 16.4175L16.8674 25.875L15.8999 25.875C15.2699 25.875 14.7749 26.37 14.7749 27C14.7749 27.63 15.2699 28.125 15.8999 28.125L20.0999 28.125C20.4749 28.125 20.7549 28.03 20.9399 27.84C21.1299 27.655 21.2249 27.375 21.2249 27C21.2249 26.625 21.1299 26.3425 20.9399 26.1525C20.7549 25.9675 20.4749 25.875 20.0999 25.875L19.1174 25.875L19.1174 15.2925C19.1174 14.9175 19.0224 14.635 18.8324 14.445C18.6474 14.26 18.3674 14.1675 17.9924 14.1675Z" fill="url(#paint_linear_14)" fill-rule="evenodd" />
+		</g>
+	</g>
+</svg>
